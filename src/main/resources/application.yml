@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: sprint3
+
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    schemas: RM554513
+    locations: classpath:db/migration
+
+jwt:
+  secret: ${JWT_SECRET:segredo_shhhhh}
+
+springdoc:
+  api-docs:
+    version: OPENAPI_3_0

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head th:replace="fragments/fragments :: head('Mottu - Login')"></head>
+<body class="container">
+
+<div th:replace="fragments/fragments :: navbar"></div>
+
+<h1 class="h1">Entre na sua conta!</h1>
+<a class="btn btn-link" href="/web/usuarios/register">Não tem uma conta? Cadastre-se aqui!</a>
+
+<form th:fragment="login" th:action="@{/web/usuarios/login}" method="post">
+     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />    
+
+    <div class="mb-3">
+        <label class="form-label">Email:</label>
+        <input class="form-control" type="email" name="username" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Senha:</label>
+        <input class="form-control" type="password" name="password" required />
+    </div>
+
+    <div th:if="${param.error}">
+        <span class="text-danger">Usuário ou senha inválidos.</span>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Entrar</button>
+</form>
+
+<div th:replace="fragments/fragments :: footer"></div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head th:replace="fragments/fragments :: head('Mottu - Excluir Moto')"></head>
+<body class="container">
+
+<div th:replace="fragments/fragments :: navbar"></div>
+
+<h1 class="h1" th:text="|Excluindo a Moto: ${motoPlaca}|"></h1>
+
+<form th:replace="fragments/fragments :: delForm(@{/web/motos/deletar/{id}(id = ${motoId})}, @{/web/motos})"></form>
+
+<div th:replace="fragments/fragments :: footer"></div>
+</body>
+</html>
